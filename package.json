@@ -1,0 +1,33 @@
+{
+  "name": "shopifyhakotheme",
+  "description": "A Shopify theme built with Tailwind CSS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run watch:css\" \"npm run watch:theme\"",
+    "build": "npm run build:css",
+    "build:css": "postcss src/styles.css -o assets/tailwind.css",
+    "watch:css": "postcss src/styles.css -o assets/tailwind.css --watch",
+    "watch:theme": "shopify theme dev --store=tg4py7-up.myshopify.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorYanson/shopifyHakoTheme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/VictorYanson/shopifyHakoTheme/issues"
+  },
+  "homepage": "https://github.com/VictorYanson/shopifyHakoTheme#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.12"
+  }
+}
