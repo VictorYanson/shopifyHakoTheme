@@ -75,7 +75,7 @@ p:empty {
 body {
   font-family: var(--font-primary--family);
   background-color: var(--color-background);
-  color: var(--color-foreground);
+  /* color: var(--color-foreground); */
 }
 
 /** Section layout utilities */

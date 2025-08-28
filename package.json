@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "concurrently \"npm run watch:css\" \"npm run watch:theme\"",
     "build": "npm run build:css",
+    "push": "git push && shopify theme push",
     "build:css": "postcss src/styles.css -o assets/tailwind.css",
     "watch:css": "postcss src/styles.css -o assets/tailwind.css --watch",
     "watch:theme": "shopify theme dev --store=tg4py7-up.myshopify.com"

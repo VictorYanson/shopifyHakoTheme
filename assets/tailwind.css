@@ -21,9 +21,6 @@
 .w-full {
   width: 100%;
 }
-.w-screen {
-  width: 100vw;
-}
 .transform {
   transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
 }
@@ -43,14 +40,17 @@
   border-style: var(--tw-border-style);
   border-width: 1px;
 }
+.bg-\[\#1f1b1b\] {
+  background-color: #1f1b1b;
+}
 .text-center {
   text-align: center;
 }
 .text-\[50px\] {
   font-size: 50px;
 }
-.text-\[100px\] {
-  font-size: 100px;
+.text-\[\#eb4034\] {
+  color: #eb4034;
 }
 .italic {
   font-style: italic;
