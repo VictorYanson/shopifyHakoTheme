@@ -3,6 +3,9 @@
 .fixed {
   position: fixed;
 }
+.mt-\[10px\] {
+  margin-top: 10px;
+}
 .block {
   display: block;
 }
@@ -15,14 +18,23 @@
 .grid {
   display: grid;
 }
-.h-screen {
-  height: 100vh;
+.h-\[800px\] {
+  height: 800px;
+}
+.h-\[1000px\] {
+  height: 1000px;
 }
 .w-full {
   width: 100%;
 }
 .transform {
   transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.flex-col {
+  flex-direction: column;
 }
 .flex-wrap {
   flex-wrap: wrap;
@@ -32,6 +44,28 @@
 }
 .justify-center {
   justify-content: center;
+}
+.gap-\[20px\] {
+  gap: 20px;
+}
+.p-\[20px\] {
+  padding: 20px;
+}
+.pt-\[150px\] {
+  padding-top: 150px;
+}
+.text-center {
+  text-align: center;
+}
+.text-\[20px\] {
+  font-size: 20px;
+}
+.text-\[48px\] {
+  font-size: 48px;
+}
+.font-\[400\] {
+  --tw-font-weight: 400;
+  font-weight: 400;
 }
 .italic {
   font-style: italic;
@@ -56,6 +90,10 @@
   inherits: false;
 }
 @property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
   syntax: "*";
   inherits: false;
 }
@@ -120,6 +158,7 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-font-weight: initial;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
