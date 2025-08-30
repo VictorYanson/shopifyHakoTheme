@@ -3,6 +3,9 @@
 .fixed {
   position: fixed;
 }
+.relative {
+  position: relative;
+}
 .mt-\[10px\] {
   margin-top: 10px;
 }
@@ -20,6 +23,9 @@
 }
 .grid {
   display: grid;
+}
+.hidden {
+  display: none;
 }
 .h-\[800px\] {
   height: 800px;
@@ -54,6 +60,10 @@
 .gap-y-\[40px\] {
   row-gap: 40px;
 }
+.border {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+}
 .p-\[20px\] {
   padding: 20px;
 }
@@ -75,10 +85,6 @@
 .text-\[48px\] {
   font-size: 48px;
 }
-.font-\[400\] {
-  --tw-font-weight: 400;
-  font-weight: 400;
-}
 .font-\[600\] {
   --tw-font-weight: 600;
   font-weight: 600;
@@ -88,6 +94,11 @@
 }
 .filter {
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+}
+.transition {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+  transition-timing-function: var(--tw-ease, ease);
+  transition-duration: var(--tw-duration, 0s);
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -108,6 +119,11 @@
 @property --tw-skew-y {
   syntax: "*";
   inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -174,6 +190,7 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-blur: initial;
       --tw-brightness: initial;
