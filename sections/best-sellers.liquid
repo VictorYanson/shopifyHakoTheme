@@ -1,0 +1,51 @@
+<div class="flex flex-col items-center w-full gap-y-[40px]">
+    <h1>OUR BEST-SELLERS</h1>
+    
+    {% assign featured = collections['frontpage'] %}
+    <div class="bestseller">
+        {% for product in featured.products limit: 4 %}
+            <div class="bestseller-product">
+                {% if product.featured_image %}
+                {% render 'image',
+                    class: 'bestseller-product__image',
+                    image: product.featured_image,
+                    url: product.url,
+                    crop: 'center'
+                %}
+                {% endif %}
+                <div class="bestseller-product__content flex flex-col items-center gap-[10px] py-[10px]">
+                    <p class="text-[20px]">{{ product.title | escape | link_to: product.url }}</p>
+                    <p class="text-[18px]"><strong>{{ product.price | money_without_trailing_zeros }}</strong></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% stylesheet %}
+  .bestseller {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 40px;
+  }
+
+  .bestseller-product__image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: var(--global-border-radius);
+  }
+
+  .bestseller-product {
+    width: 100%;
+    height: 400px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.collection",
+  "settings": []
+}
+{% endschema %}
