@@ -13,9 +13,9 @@
                     crop: 'center'
                 %}
                 {% endif %}
-                <div class="bestseller-product__content flex flex-col items-center gap-[10px] py-[10px]">
-                    <p class="text-[20px]">{{ product.title | escape | link_to: product.url }}</p>
-                    <p class="text-[18px]"><strong>{{ product.price | money_without_trailing_zeros }}</strong></p>
+                <div class="bestseller-product__content flex flex-col items-center gap-[6px] py-[10px]">
+                    <p class="text-[22px]">{{ product.title | escape | link_to: product.url }}</p>
+                    <p class="text-[22px]"><strong>{{ product.price | money_without_trailing_zeros }}</strong></p>
                 </div>
             </div>
         {% endfor %}
@@ -27,12 +27,13 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 40px;
+    gap: 1.3rem;
   }
 
   .bestseller-product__image img {
     width: 100% !important;
-    height: 100% !important;
+    height: auto;
+    aspect-ratio: 3/4;
     object-fit: cover;
     border-radius: var(--global-border-radius);
   }
@@ -45,7 +46,7 @@
 
 {% schema %}
 {
-  "name": "t:general.collection",
+  "name": "best-sellers",
   "settings": []
 }
 {% endschema %}

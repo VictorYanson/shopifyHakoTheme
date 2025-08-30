@@ -45,14 +45,11 @@
 .justify-center {
   justify-content: center;
 }
-.gap-\[10px\] {
-  gap: 10px;
+.gap-\[6px\] {
+  gap: 6px;
 }
 .gap-\[20px\] {
   gap: 20px;
-}
-.gap-y-\[30px\] {
-  row-gap: 30px;
 }
 .gap-y-\[40px\] {
   row-gap: 40px;
@@ -69,14 +66,18 @@
 .text-center {
   text-align: center;
 }
-.text-\[18px\] {
-  font-size: 18px;
-}
 .text-\[20px\] {
   font-size: 20px;
 }
+.text-\[22px\] {
+  font-size: 22px;
+}
 .text-\[48px\] {
   font-size: 48px;
+}
+.font-\[400\] {
+  --tw-font-weight: 400;
+  font-weight: 400;
 }
 .font-\[600\] {
   --tw-font-weight: 600;
