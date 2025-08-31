@@ -1,0 +1,109 @@
+{% assign in_cart = false %}
+{% for item in cart.items %}
+  {% if item.id == product.selected_or_first_available_variant.id %}
+    {% assign in_cart = true %}
+  {% endif %}
+{% endfor %}
+
+{% if in_cart %}
+  <button class="add-to-cart" disabled>
+    <img src="{{ 'icon-cart-active.svg' | asset_url }}" alt="cart icon" height="22" width="22" />
+    <p class="hover-text">Added!</p>
+  </button>
+{% else %}
+  <form method="post" action="{{ routes.cart_add_url }}" class="ajax-add-to-cart">
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+    <button type="submit" class="add-to-cart">
+      <img src="{{ 'icon-cart.svg' | asset_url }}" alt="cart icon" height="22" width="22" class="cart-icon"/>
+      <p class="hover-text">Add to cart</p>
+    </button>
+  </form>
+{% endif %}
+
+{% javascript %}
+if (!window.ajaxCartInit) {
+  window.ajaxCartInit = true;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("form.ajax-add-to-cart").forEach(function (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let formData = new FormData(form);
+        const submittedForm = e.target;
+
+        const iconToChange = submittedForm.querySelector(".cart-icon");
+        const hoverText = submittedForm.querySelector(".hover-text");
+        if (iconToChange) {
+          iconToChange.setAttribute("src", "assets/icon-cart-active.svg");
+          hoverText.textContent = "Added!";
+        }
+
+        fetch(window.Shopify.routes.root + "cart/add.js", {
+          method: "POST",
+          body: formData,
+          headers: {
+            "X-Requested-With": "XMLHttpRequest",
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          fetch(window.Shopify.routes.root + "cart.js")
+          .then(res => res.json())
+          .then(cart => {
+            document.querySelectorAll(".cart-count").forEach(el => {
+              el.textContent = cart.item_count;
+            });
+          });
+        })
+        .catch(error => {
+          console.error("Error adding to cart:", error);
+        });
+      });
+    });
+  });
+}
+{% endjavascript %}
+
+{% stylesheet %}
+  .add-to-cart {
+    background: rgb(255, 255, 255);
+    padding: 10px 9px 10px 10px;
+    border-radius: 1000px;
+    gap: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.11) 0px 2px 7px 6px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .image-container:hover .add-to-cart {
+    opacity: 1;
+  }
+
+  .add-to-cart:hover {
+    padding: 10px 12px 10px 10px;
+  }
+
+  .add-to-cart .hover-text {
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.3s ease, margin-left 0.3s ease;
+    margin-left: 0;
+  }
+
+  .add-to-cart:hover .hover-text {
+    max-width: 100px;
+    margin-left: 8px;
+  }
+{% endstylesheet %}

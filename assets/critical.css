@@ -40,6 +40,10 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  color: inherit;
+}
+
 .btn:hover {
   background-color: #e6737a;
 }

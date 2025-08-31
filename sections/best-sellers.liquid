@@ -1,3 +1,4 @@
+{% comment %} best-seller.liquid {% endcomment %}
 <div class="flex flex-col items-center w-full gap-y-[40px]">
   <h1>OUR BEST-SELLERS</h1>
   
@@ -14,20 +15,7 @@
               crop: 'center'
           %}
           {% endif %}
-          <form method="post" action={{ routes.cart_add_url }}>
-            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <button type="submit" class="add-to-cart">
-              <img 
-                src="{{ 'icon-cart.svg' | asset_url }}" 
-                alt="cart icon"
-                height="22"
-                width="22"
-              />
-              <p class="hover-text">
-                Add to cart
-              </p>
-            </button>
-          </form>
+          {% render 'quick-add', product: product %}
         </div>
         <div class="bestseller-product__content flex flex-col items-center gap-[6px] py-[10px]">
           <p class="text-[22px]">{{ product.title | escape | link_to: product.url }}</p>
@@ -39,47 +27,6 @@
 </div>
 
 {% stylesheet %}
-  .add-to-cart {
-    background: rgb(255, 255, 255);
-    padding: 10px 9px 10px 10px;
-    border-radius: 1000px;
-    gap: 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    box-shadow: rgba(99, 99, 99, 0.11) 0px 2px 7px 6px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  .image-container:hover .add-to-cart {
-    opacity: 1;
-  }
-
-  .add-to-cart:hover {
-    padding: 10px 12px 10px 10px;
-  }
-
-  .add-to-cart .hover-text {
-    max-width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    transition: max-width 0.3s ease, margin-left 0.3s ease;
-    margin-left: 0;
-  }
-
-  .add-to-cart:hover .hover-text {
-    max-width: 100px;
-    margin-left: 8px;
-  }
-
   .bestseller {
     display: flex;
     flex-direction: row;
