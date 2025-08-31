@@ -11,11 +11,16 @@
     "banner": {
       "type": "text-banner",
       "settings": {}
+    },
+    "bento":{
+      "type": "bento",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "best-sellers",
-    "banner"
+    "banner",
+    "bento"
   ]
 }
