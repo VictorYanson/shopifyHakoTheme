@@ -1,10 +1,19 @@
 /*! tailwindcss v4.1.12 | MIT License | https://tailwindcss.com */
 @layer properties;
+.absolute {
+  position: absolute;
+}
 .fixed {
   position: fixed;
 }
 .relative {
   position: relative;
+}
+.-z-10 {
+  z-index: calc(10 * -1);
+}
+.my-\[200px\] {
+  margin-block: 200px;
 }
 .mt-\[10px\] {
   margin-top: 10px;
@@ -30,8 +39,23 @@
 .h-\[800px\] {
   height: 800px;
 }
+.h-full {
+  height: 100%;
+}
+.min-h-\[500px\] {
+  min-height: 500px;
+}
+.w-\[60\%\] {
+  width: 60%;
+}
+.w-\[100vw\] {
+  width: 100vw;
+}
 .w-full {
   width: 100%;
+}
+.min-w-\[500px\] {
+  min-width: 500px;
 }
 .transform {
   transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -64,8 +88,18 @@
   border-style: var(--tw-border-style);
   border-width: 1px;
 }
+.bg-\[red\] {
+  background-color: red;
+}
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .p-\[20px\] {
   padding: 20px;
+}
+.px-\[30px\] {
+  padding-inline: 30px;
 }
 .py-\[10px\] {
   padding-block: 10px;
@@ -85,9 +119,15 @@
 .text-\[48px\] {
   font-size: 48px;
 }
+.text-\[60px\] {
+  font-size: 60px;
+}
 .font-\[600\] {
   --tw-font-weight: 600;
   font-weight: 600;
+}
+.text-\[white\] {
+  color: white;
 }
 .italic {
   font-style: italic;

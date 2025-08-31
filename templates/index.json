@@ -8,9 +8,14 @@
       "type": "best-sellers",
       "settings": {}
     },
+    "banner": {
+      "type": "text-banner",
+      "settings": {}
+    }
   },
   "order": [
     "hero",
-    "best-sellers"
+    "best-sellers",
+    "banner"
   ]
 }
